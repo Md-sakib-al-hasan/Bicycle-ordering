@@ -10,24 +10,9 @@ const createOrdertoDB = async (order: Torders) => {
 //get data revenue from orders
 const getfindRevenuefromeorderstoDB = async () => {
   const result = await Oreders.aggregate([
+
     {
-      $lookup: {
-        from: 'products',
-        localField: 'product',
-        foreignField: '_id',
-        as: 'productDetails',
-      },
-    },
-    {
-      $unwind: '$productDetails',
-    },
-    {
-      $project: {
-        revenue: { $multiply: ['$productDetails.price', '$quantity'] },
-      },
-    },
-    {
-      $group: { _id: null, totalRevenue: { $sum: '$revenue' } },
+      $group: { _id: null, totalRevenue: { $sum: '$totalPrice' } },
     },
     { $project: { _id: 0 } },
   ]);

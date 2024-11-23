@@ -14,8 +14,8 @@ app.use((0, cors_1.default)());
 //Handle user routes here
 app.use('/api/products', product_route_1.Productrouter);
 app.use('/api/orders', order_route_1.OrderRoute);
-app.get("/", (req, res) => {
-    res.send("this succesfull");
+app.get('/', (req, res) => {
+    res.send('this succesfull');
 });
 //to handle non-existent routes
 app.use((req, res, next) => {

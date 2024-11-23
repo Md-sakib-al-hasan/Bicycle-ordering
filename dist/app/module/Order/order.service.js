@@ -23,23 +23,7 @@ const createOrdertoDB = (order) => __awaiter(void 0, void 0, void 0, function* (
 const getfindRevenuefromeorderstoDB = () => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield order_model_1.default.aggregate([
         {
-            $lookup: {
-                from: 'products',
-                localField: 'product',
-                foreignField: '_id',
-                as: 'productDetails',
-            },
-        },
-        {
-            $unwind: '$productDetails',
-        },
-        {
-            $project: {
-                revenue: { $multiply: ['$productDetails.price', '$quantity'] },
-            },
-        },
-        {
-            $group: { _id: null, totalRevenue: { $sum: '$revenue' } },
+            $group: { _id: null, totalRevenue: { $sum: '$totalPrice' } },
         },
         { $project: { _id: 0 } },
     ]);
