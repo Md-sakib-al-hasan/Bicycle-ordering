@@ -65,8 +65,9 @@ This project provides a RESTful API for managing bicycles, orders, and inventory
 
 The application requires the following environment variables to be set in a .env file:
 
-| Name      | Age | Country  |
-|-----------|-----|----------|
-| Alice     | 25  | USA      |
-| Bob       | 30  | Canada   |
-| Charlie   | 28  | UK       |
+| Variable      | Description  |
+|-------------|-------------------------------------------------------------------------|
+| NODE_ENV    | The environment (e.g., development or production).                      |
+| PORT        | Port on which the server will run (default: 5000).                      |  
+| DATABASE_URL| MongoDB connection string. Replace with your actual connection details. | 
+                
