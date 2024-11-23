@@ -13,6 +13,10 @@ app.use(cors());
 app.use('/api/products', Productrouter);
 app.use('/api/orders', OrderRoute);
 
+app.get("/",(req:Request,res:Response) => {
+     res.send("this succesfull")
+})
+
 //to handle non-existent routes
 app.use((req: Request, res: Response, next: NextFunction) => {
   const error = new Error(`Route not found - ${req.originalUrl}`);
