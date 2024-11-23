@@ -27,7 +27,7 @@ function server() {
             });
         }
         catch (error) {
-            console.error("Error connecting to the database:", error.message);
+            console.error('Error connecting to the database:', error.message);
             console.error(error.stack);
             process.exit(1);
         }

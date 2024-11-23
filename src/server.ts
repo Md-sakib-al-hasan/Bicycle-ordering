@@ -12,7 +12,7 @@ async function server() {
     app.listen(config.port, () => {
       console.log(`🚀 server is running on port ${config.port}`);
     });
-  } catch (error: any) {
+  } catch (error:any) {
     console.error('Error connecting to the database:', error.message);
     console.error(error.stack);
     process.exit(1);

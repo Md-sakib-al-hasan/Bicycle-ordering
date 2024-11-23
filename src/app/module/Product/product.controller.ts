@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import productValidationSchema, {
   ObjectIdValidationSchema,
   optionalProductSchema,
-} from './product.validation';
+} from './product.validation'; 
 import { productServices } from './product.service';
 
 //create a Biclycle
@@ -16,7 +16,7 @@ const createBicycle = async (req: Request, res: Response) => {
       success: true,
       data: result,
     });
-  } catch (error: unknown) {
+  } catch (error:any) {
     res.status(500).json({
       message: 'Validation failed',
       success: false,
@@ -38,7 +38,7 @@ const getallBiclcyle = async (req: Request, res: Response) => {
       success: true,
       data: result,
     });
-  } catch (error: unknown) {
+  } catch (error:any) {
     res.status(500).json({
       message: 'Validation failed',
       success: false,
@@ -59,7 +59,7 @@ const getSingleBicycle = async (req: Request, res: Response) => {
       success: true,
       data: result,
     });
-  } catch (error: unknown) {
+  } catch (error:any) {
     res.status(500).json({
       message: 'Validation failed',
       success: false,
@@ -85,7 +85,7 @@ const updateSingleBicycleData = async (req: Request, res: Response) => {
       success: true,
       data: result,
     });
-  } catch (error: unknown) {
+  } catch (error:any) {
     res.status(500).json({
       message: 'Validation failed',
       success: false,
@@ -107,7 +107,7 @@ const deleteSingBicycleData = async (req: Request, res: Response) => {
       success: true,
       data: result,
     });
-  } catch (error: unknown) {
+  } catch (error:any) {
     res.status(500).json({
       message: 'Validation failed',
       success: false,

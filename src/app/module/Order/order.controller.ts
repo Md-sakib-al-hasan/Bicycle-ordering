@@ -20,7 +20,7 @@ const createOrder = async (req: Request, res: Response) => {
       success: true,
       data: result,
     });
-  } catch (error: unknown) {
+  } catch (error:any) {
     res.status(500).json({
       message: 'Validation failed',
       success: false,
@@ -39,7 +39,7 @@ const getRevenuefromorders = async (req: Request, res: Response) => {
       success: true,
       data: result,
     });
-  } catch (error: unknown) {
+  } catch (error:any) {
     res.status(500).json({
       message: 'Calculate Revenue from orders failed',
       success: false,

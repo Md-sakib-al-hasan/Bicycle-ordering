@@ -29,6 +29,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     error: err,
     stack: err.stack,
   });
+  next()
 });
 
 export default app;

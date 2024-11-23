@@ -14,12 +14,44 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.productServices = void 0;
 const product_model_1 = __importDefault(require("./product.model"));
+const mongoose_1 = __importDefault(require("mongoose"));
 //store a bicycle  product
 const createBicycletoDB = (product) => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield product_model_1.default.create(product);
-    const fetchedResult = result.toObject();
-    return fetchedResult;
+    return result;
+});
+//find all bicycle
+const getsearchTermbicycledatatoDB = (searchTerm) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield product_model_1.default.find({
+        $or: [
+            { name: { $regex: searchTerm, $options: 'i' } },
+            { brand: { $regex: searchTerm, $options: 'i' } },
+            { type: { $regex: searchTerm, $options: 'i' } },
+        ],
+    });
+    return result !== null && result !== void 0 ? result : [];
+});
+//find single bicycle
+const getSinglebicycledatatoDB = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield product_model_1.default.findById(id);
+    return result !== null && result !== void 0 ? result : {};
+});
+//update single bicycle data
+const updateSinglebicycledatatoDB = (id, updata) => __awaiter(void 0, void 0, void 0, function* () {
+    const ObjectId = new mongoose_1.default.Types.ObjectId(id);
+    yield product_model_1.default.updateOne({ _id: ObjectId }, { $set: Object.assign(Object.assign({}, updata), { updatedAt: new Date() }) });
+    const result = yield product_model_1.default.findOne({ _id: ObjectId });
+    return result !== null && result !== void 0 ? result : {};
+});
+//delete single bicycle data
+const deleteSinglebicycledatatoDB = (id) => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield product_model_1.default.findByIdAndDelete(id);
+    return result !== null && result !== void 0 ? result : {};
 });
 exports.productServices = {
     createBicycletoDB,
+    getsearchTermbicycledatatoDB,
+    getSinglebicycledatatoDB,
+    updateSinglebicycledatatoDB,
+    deleteSinglebicycledatatoDB,
 };
