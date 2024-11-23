@@ -2,6 +2,7 @@ import { Request, Response } from 'express';
 import productValidationSchema, {
   ObjectIdValidationSchema,
   optionalProductSchema,
+  Searchtemschemavalidation,
 } from './product.validation';
 import { productServices } from './product.service';
 
@@ -30,14 +31,24 @@ const createBicycle = async (req: Request, res: Response) => {
 const getallBiclcyle = async (req: Request, res: Response) => {
   try {
     const { searchTerm } = req.query;
-    const result = await productServices.getsearchTermbicycledatatoDB(
-      searchTerm as string,
-    );
-    res.status(200).json({
-      message: 'Bicycles retrieved successfully',
-      success: true,
-      data: result,
-    });
+
+    if (searchTerm) {
+      const validateSearchtrm = Searchtemschemavalidation.parse(searchTerm);
+      const result =
+        await productServices.getsearchTermbicycledatatoDB(validateSearchtrm);
+      res.status(200).json({
+        message: 'Bicycles retrieved successfully',
+        success: true,
+        data: result,
+      });
+    } else {
+      const result = await productServices.getallproducts();
+      res.status(200).json({
+        message: 'Bicycles retrieved successfully',
+        success: true,
+        data: result,
+      });
+    }
   } catch (error: any) {
     res.status(500).json({
       message: 'Validation failed',

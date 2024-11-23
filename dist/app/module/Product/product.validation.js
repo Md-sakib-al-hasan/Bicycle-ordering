@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.ObjectIdValidationSchema = exports.optionalProductSchema = void 0;
+exports.ObjectIdValidationSchema = exports.optionalProductSchema = exports.Searchtemschemavalidation = void 0;
 const zod_1 = require("zod");
 // Define the Zod schema for product validation
 const productValidationSchema = zod_1.z.object({
@@ -33,6 +33,8 @@ const productValidationSchema = zod_1.z.object({
         message: 'Stock status must be a boolean',
     }),
 });
+//query type filttering
+exports.Searchtemschemavalidation = zod_1.z.string().trim();
 //productvalidtinSchema convert to optinal file schema
 exports.optionalProductSchema = productValidationSchema.partial().strict();
 // Define the zod schema for productId validation and export

@@ -21,14 +21,13 @@ const createBicycletoDB = (product) => __awaiter(void 0, void 0, void 0, functio
     return result;
 });
 //find all bicycle
+const getallproducts = () => __awaiter(void 0, void 0, void 0, function* () {
+    const result = yield product_model_1.default.find();
+    return result;
+});
+//find a product with espesificed type
 const getsearchTermbicycledatatoDB = (searchTerm) => __awaiter(void 0, void 0, void 0, function* () {
-    const result = yield product_model_1.default.find({
-        $or: [
-            { name: { $regex: searchTerm, $options: 'i' } },
-            { brand: { $regex: searchTerm, $options: 'i' } },
-            { type: { $regex: searchTerm, $options: 'i' } },
-        ],
-    });
+    const result = yield product_model_1.default.find({ type: { $regex: searchTerm, $options: 'i' } });
     return result !== null && result !== void 0 ? result : [];
 });
 //find single bicycle
@@ -54,4 +53,5 @@ exports.productServices = {
     getSinglebicycledatatoDB,
     updateSinglebicycledatatoDB,
     deleteSinglebicycledatatoDB,
+    getallproducts,
 };

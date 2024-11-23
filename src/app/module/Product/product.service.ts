@@ -9,14 +9,15 @@ const createBicycletoDB = async (product: Tproducts) => {
 };
 
 //find all bicycle
+const getallproducts = async () => {
+  const result = await Products.find();
+  return result;
+};
 
+//find a product with espesificed type
 const getsearchTermbicycledatatoDB = async (searchTerm: string) => {
   const result = await Products.find({
-    $or: [
-      { name: { $regex: searchTerm, $options: 'i' } },
-      { brand: { $regex: searchTerm, $options: 'i' } },
-      { type: { $regex: searchTerm, $options: 'i' } },
-    ],
+    type: { $regex: searchTerm, $options: 'i' },
   });
   return result ?? [];
 };
@@ -51,4 +52,5 @@ export const productServices = {
   getSinglebicycledatatoDB,
   updateSinglebicycledatatoDB,
   deleteSinglebicycledatatoDB,
+  getallproducts,
 };

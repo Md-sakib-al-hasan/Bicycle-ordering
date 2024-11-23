@@ -10,7 +10,6 @@ const createOrdertoDB = async (order: Torders) => {
 //get data revenue from orders
 const getfindRevenuefromeorderstoDB = async () => {
   const result = await Oreders.aggregate([
-
     {
       $group: { _id: null, totalRevenue: { $sum: '$totalPrice' } },
     },

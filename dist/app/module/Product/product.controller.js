@@ -60,12 +60,23 @@ const createBicycle = (req, res) => __awaiter(void 0, void 0, void 0, function* 
 const getallBiclcyle = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const { searchTerm } = req.query;
-        const result = yield product_service_1.productServices.getsearchTermbicycledatatoDB(searchTerm);
-        res.status(200).json({
-            message: 'Bicycles retrieved successfully',
-            success: true,
-            data: result,
-        });
+        if (searchTerm) {
+            const validateSearchtrm = product_validation_1.Searchtemschemavalidation.parse(searchTerm);
+            const result = yield product_service_1.productServices.getsearchTermbicycledatatoDB(validateSearchtrm);
+            res.status(200).json({
+                message: 'Bicycles retrieved successfully',
+                success: true,
+                data: result,
+            });
+        }
+        else {
+            const result = yield product_service_1.productServices.getallproducts();
+            res.status(200).json({
+                message: 'Bicycles retrieved successfully',
+                success: true,
+                data: result,
+            });
+        }
     }
     catch (error) {
         res.status(500).json({

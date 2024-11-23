@@ -32,6 +32,9 @@ const productValidationSchema = z.object({
   }),
 });
 
+//query type filttering
+export const Searchtemschemavalidation = z.string().trim();
+
 //productvalidtinSchema convert to optinal file schema
 
 export const optionalProductSchema = productValidationSchema.partial().strict();
