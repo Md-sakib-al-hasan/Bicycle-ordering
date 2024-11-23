@@ -40,5 +40,5 @@ This project provides a RESTful API for managing bicycles, orders, and inventory
 
 ### Steps
 1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-repository/bicycle-ordering-api.git
+   
+   git clone https://github.com/Md-sakib-al-hasan/Bicycle-ordering.git
