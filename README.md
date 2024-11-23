@@ -65,9 +65,34 @@ This project provides a RESTful API for managing bicycles, orders, and inventory
 
 The application requires the following environment variables to be set in a .env file:
 
-| Variable      | Description  |
+| Variable    | Description                                                             |
 |-------------|-------------------------------------------------------------------------|
 | NODE_ENV    | The environment (e.g., development or production).                      |
 | PORT        | Port on which the server will run (default: 5000).                      |  
 | DATABASE_URL| MongoDB connection string. Replace with your actual connection details. | 
+
+
+
+
+
+# API Endpoints
+
+## Product Management
+
+| HTTP Method | Endpoint                  | Description                  |
+|-------------|---------------------------|------------------------------|
+| `GET`       | `/api/products`            | Fetch all products           |
+| `POST`      | `/api/products`            | Create a new product         |
+| `PUT`       | `/api/products/:id`        | Update a product             |
+| `DELETE`    | `/api/products/:id`        | Delete a product             |
+
+## Order Management
+
+| HTTP Method | Endpoint                  | Description                  |
+|-------------|---------------------------|------------------------------|
+| `POST`      | `/api/orders`              | Place an order               |
+| `GET`       | `/api/orders/:id`          | Fetch order details          |
+
+
+
                 
