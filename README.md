@@ -88,7 +88,7 @@ The application requires the following environment variables to be set in a .env
 
 | HTTP Method | Endpoint                        | Description                                         |
 | ----------- | ------------------------------- | --------------------------------------------------- |
-| `GET`       | `/api/products?searchTerm=type` | Fetch products based on either name, brand, or type |
+| `GET`       | `/api/products?searchTerm=type` | Fetch products based on type |
 | `POST`      | `/api/products`                 | Create a new product                                |
 | `PUT`       | `/api/products/:id`             | Update a product                                    |
 | `DELETE`    | `/api/products/:id`             | Delete a product                                    |
@@ -96,6 +96,6 @@ The application requires the following environment variables to be set in a .env
 ## Order Management
 
 | HTTP Method | Endpoint              | Description                   |
-| ----------- | --------------------- | ----------------------------- | --- |
+| ----------- | --------------------- | ----------------------------- |
 | `POST`      | `/api/orders`         | Place an order                |
-| `GET`       | `/api/orders/revenue` | Calculate Revenue from Orders |     |
+| `GET`       | `/api/orders/revenue` | Calculate Revenue from Orders |
