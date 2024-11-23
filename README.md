@@ -46,3 +46,11 @@ This project provides a RESTful API for managing bicycles, orders, and inventory
 2. Install the project dependencies:
    ```bash
    npm install
+3. Create a `.env` file in the root directory with the following environment variables:
+
+   ```plaintext
+   NODE_ENV=development
+   # PORT=Specify the port number.
+   PORT=5000
+   # DATABASE_URL=URL to connect to the database
+   DATABASE_URL=mongodb+srv://<username>:<password>@<cluster-url>/<database>?retryWrites=true&w=majority
