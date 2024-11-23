@@ -13,9 +13,9 @@ app.use(cors());
 app.use('/api/products', Productrouter);
 app.use('/api/orders', OrderRoute);
 
-app.get("/",(req:Request,res:Response) => {
-     res.send("this succesfull")
-})
+app.get('/', (req: Request, res: Response) => {
+  res.send('this succesfull');
+});
 
 //to handle non-existent routes
 app.use((req: Request, res: Response, next: NextFunction) => {
@@ -33,7 +33,7 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
     error: err,
     stack: err.stack,
   });
-  next()
+  next();
 });
 
 export default app;
