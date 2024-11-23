@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { Request, Response } from 'express';
 import userValidationSchema, { loginValidationSchma } from './user.validation';
 import errorHandeling from '../../shared/utils/errorHandler';
