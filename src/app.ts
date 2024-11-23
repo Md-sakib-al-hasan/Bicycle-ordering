@@ -2,17 +2,21 @@ import express, { NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import { Productrouter } from './app/module/Product/product.route';
 import { OrderRoute } from './app/module/Order/order.route';
-
+import { UserRoute } from './app/module/user/user.routes';
+import cookieParser from 'cookie-parser';
 const app = express();
 
 //middleWare setup
 app.use(express.json());
 app.use(cors());
+app.use(cookieParser());
 
 //Handle user routes here
 app.use('/api/products', Productrouter);
 app.use('/api/orders', OrderRoute);
+app.use('/api/user', UserRoute);
 
+//root route
 app.get('/', (req: Request, res: Response) => {
   res.send('this succesfull');
 });
