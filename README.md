@@ -10,8 +10,7 @@ This project provides a RESTful API for managing bicycles, orders, and inventory
 - [Installation](#installation)
 - [Environment Variables](#environment-variables)
 - [API Endpoints](#api-endpoints)
-- [Error Handling](#error-handling)
-- [License](#license)
+
 
 ---
 
@@ -73,7 +72,7 @@ The application requires the following environment variables to be set in a .env
 
 
 
-
+---
 
 # API Endpoints
 
@@ -95,4 +94,7 @@ The application requires the following environment variables to be set in a .env
 
 
 
-                
+
+
+
+
