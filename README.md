@@ -54,3 +54,19 @@ This project provides a RESTful API for managing bicycles, orders, and inventory
    PORT=5000
    # DATABASE_URL=URL to connect to the database
    DATABASE_URL=mongodb+srv://<username>:<password>@<cluster-url>/<database>?retryWrites=true&w=majority
+4. Start the server:
+   ```bash
+      npm run start
+
+
+---
+
+## Environment Variables
+
+The application requires the following environment variables to be set in a .env file:
+
+| Name      | Age | Country  |
+|-----------|-----|----------|
+| Alice     | 25  | USA      |
+| Bob       | 30  | Canada   |
+| Charlie   | 28  | UK       |
