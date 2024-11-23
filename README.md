@@ -43,6 +43,6 @@ This project provides a RESTful API for managing bicycles, orders, and inventory
    ```bash
    git clone https://github.com/Md-sakib-al-hasan/Bicycle-ordering.git
    
-2.Install the project dependencies:
- ```bash
-         npm install
+2. Install the project dependencies:
+   ```bash
+   npm install
