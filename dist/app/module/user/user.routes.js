@@ -14,6 +14,6 @@ route.post('/create-user', user_controller_1.UserController.createUser);
 route.post('/login', token_1.Verifytoken, user_controller_1.UserController.login);
 //find all proudct
 route.get('/allproudct', token_1.Verifytoken, user_controller_1.UserController.getAllproduct);
-//find all order 
+//find all order
 route.get('/allorder', token_1.Verifytoken, user_controller_1.UserController.getAllorder);
 exports.UserRoute = route;

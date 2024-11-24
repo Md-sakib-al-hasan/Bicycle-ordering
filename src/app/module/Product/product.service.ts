@@ -17,7 +17,11 @@ const getallproducts = async () => {
 //find a product with espesificed type
 const getsearchTermbicycledatatoDB = async (searchTerm: string) => {
   const result = await Products.find({
-    type: { $regex: searchTerm, $options: 'i' },
+    $or: [
+      { name: { $regex: searchTerm, $options: 'i' } },
+      { brand: { $regex: searchTerm, $options: 'i' } },
+      { type: { $regex: searchTerm, $options: 'i' } },
+    ],
   });
   return result ?? [];
 };

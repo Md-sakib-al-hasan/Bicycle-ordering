@@ -26,17 +26,16 @@ const getSingelUser = (email) => __awaiter(void 0, void 0, void 0, function* () 
     const result = yield user_model_1.default.findOne({ email });
     return result;
 });
-//find all product 
+//find all product
 const getAllproductoDB = () => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield product_model_1.default.aggregate([
-        { $project: { name: 1, brand: 1 } }
+        { $project: { name: 1, brand: 1 } },
     ]);
     return result;
 });
 const getAllOrderoDB = () => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield order_model_1.default.aggregate([
-        { $project: { email: 1, product: 1, quantity: 1,
-                updatedAt: 1 } }
+        { $project: { email: 1, product: 1, quantity: 1, updatedAt: 1 } },
     ]);
     return result;
 });

@@ -12,27 +12,29 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Verifytoken = exports.createtoken = void 0;
+exports.PaymentServices = void 0;
 /* eslint-disable @typescript-eslint/no-explicit-any */
+const stripe_1 = __importDefault(require("stripe"));
 const config_1 = __importDefault(require("../../config"));
-const jsonwebtoken_1 = __importDefault(require("jsonwebtoken"));
-const secretKey = config_1.default.jwt_key || 'afalkfjlkajfijhaoifjaksdk';
-//create a token
-const createtoken = (payload) => __awaiter(void 0, void 0, void 0, function* () {
-    const token = jsonwebtoken_1.default.sign(payload, secretKey, { expiresIn: '1h' });
-    return token;
+const stripe = new stripe_1.default(config_1.default.stripe_secret_key, { apiVersion: "2024-11-20.acacia" });
+const createPaymentIntent = (amount, currency) => __awaiter(void 0, void 0, void 0, function* () {
+    try {
+        return yield stripe.paymentIntents.create({ amount, currency });
+    }
+    catch (error) {
+        throw new Error(`stripe Error:${error.message}`);
+    }
 });
-exports.createtoken = createtoken;
-//verify token middlware
-const Verifytoken = (req, res, next) => __awaiter(void 0, void 0, void 0, function* () {
-    const token = req.cookies.token;
-    jsonwebtoken_1.default.verify(token, secretKey, (err, decoded) => {
-        if (err) {
-            return res.status(403).send({ message: 'Invalid or expired token' });
-        }
-        // Attach decoded data to request
-        req.body = decoded;
-        next();
-    });
+const verifyPayment = (paymentIntentId) => __awaiter(void 0, void 0, void 0, function* () {
+    const paymentIntent = yield stripe.paymentIntents.retrieve(paymentIntentId);
+    if (paymentIntent.status === 'succeeded') {
+        return { payment: "payment succedfull" };
+    }
+    else {
+        throw new Error("payment is not completed ");
+    }
 });
-exports.Verifytoken = Verifytoken;
+exports.PaymentServices = {
+    createPaymentIntent,
+    verifyPayment,
+};

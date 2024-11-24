@@ -9,6 +9,7 @@ const product_route_1 = require("./app/module/Product/product.route");
 const order_route_1 = require("./app/module/Order/order.route");
 const user_routes_1 = require("./app/module/user/user.routes");
 const cookie_parser_1 = __importDefault(require("cookie-parser"));
+const payment_route_1 = require("./app/module/payment/payment.route");
 const app = (0, express_1.default)();
 //middleWare setup
 app.use(express_1.default.json());
@@ -18,7 +19,8 @@ app.use((0, cookie_parser_1.default)());
 app.use('/api/products', product_route_1.Productrouter);
 app.use('/api/orders', order_route_1.OrderRoute);
 app.use('/api/user', user_routes_1.UserRoute);
-//root route 
+app.use('/api/payment', payment_route_1.PaymentRouter);
+//root route
 app.get('/', (req, res) => {
     res.send('this succesfull');
 });

@@ -47,12 +47,12 @@ const createUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () 
     try {
         const user = req.body.user;
         const validationuser = user_validation_1.default.parse(user);
-        res.cookie("token", (0, token_1.createtoken)(validationuser), {
+        res.cookie('token', (0, token_1.createtoken)(validationuser), {
             httpOnly: true,
             maxAge: 36000,
         });
         const reuslt = yield user_service_1.UserServices.createausertoDB(validationuser);
-        (0, responseHandeling_1.default)(res, reuslt, "Succedfully create user");
+        (0, responseHandeling_1.default)(res, reuslt, 'Succedfully create user');
     }
     catch (error) {
         (0, errorHandler_1.default)(error, res);
@@ -64,8 +64,9 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
         const data = req.body;
         const { email, password } = user_validation_1.loginValidationSchma.parse(data);
         const result = yield user_service_1.UserServices.getSingelUser(email);
-        if (email === (result === null || result === void 0 ? void 0 : result.email) && (yield bcrypt_1.default.compare(password, result.password))) {
-            (0, responseHandeling_1.default)(res, result, "Succedfully retrieve user ");
+        if (email === (result === null || result === void 0 ? void 0 : result.email) &&
+            (yield bcrypt_1.default.compare(password, result.password))) {
+            (0, responseHandeling_1.default)(res, result, 'Succedfully retrieve user ');
         }
     }
     catch (error) {
@@ -76,7 +77,7 @@ const login = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
 const getAllproduct = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const result = yield user_service_1.UserServices.getAllproductoDB();
-        (0, responseHandeling_1.default)(res, result, "all product retrive");
+        (0, responseHandeling_1.default)(res, result, 'all product retrive');
     }
     catch (error) {
         (0, errorHandler_1.default)(error, res);
@@ -85,7 +86,7 @@ const getAllproduct = (req, res) => __awaiter(void 0, void 0, void 0, function* 
 const getAllorder = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
     try {
         const result = yield user_service_1.UserServices.getAllOrderoDB();
-        (0, responseHandeling_1.default)(res, result, "all order retrive");
+        (0, responseHandeling_1.default)(res, result, 'all order retrive');
     }
     catch (error) {
         (0, errorHandler_1.default)(error, res);

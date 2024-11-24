@@ -33,7 +33,7 @@ userSchema.pre('save', function (next) {
 });
 userSchema.post('save', function (doc) {
     return __awaiter(this, void 0, void 0, function* () {
-        doc.password = "";
+        doc.password = '';
     });
 });
 const User = (0, mongoose_1.model)('User', userSchema);
