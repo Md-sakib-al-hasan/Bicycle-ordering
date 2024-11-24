@@ -29,7 +29,7 @@ const getSingelUser = (email) => __awaiter(void 0, void 0, void 0, function* () 
 //find all product
 const getAllproductoDB = () => __awaiter(void 0, void 0, void 0, function* () {
     const result = yield product_model_1.default.aggregate([
-        { $project: { name: 1, brand: 1 } },
+        { $project: { name: 1 } },
     ]);
     return result;
 });
