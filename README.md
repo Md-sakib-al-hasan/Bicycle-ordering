@@ -87,7 +87,7 @@ The application requires the following environment variables to be set in a .env
 ## Product Management
 
 | HTTP Method | Endpoint                        | Description                            |
-| ----------- | ------------------------------- | ----------------------------           |
+| ----------- | ------------------------------- | -------------------------------------- |
 | `GET`       | `/api/products?searchTerm=type` | Fetch products based on type,name,bran |
 | `POST`      | `/api/products`                 | Create a new product                   |
 | `PUT`       | `/api/products/:id`             | Update a product                       |

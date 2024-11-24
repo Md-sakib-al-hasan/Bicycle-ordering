@@ -1,2 +1,2 @@
-import stripe from "stripe";
-export  default stripe;
+import stripe from 'stripe';
+export default stripe;

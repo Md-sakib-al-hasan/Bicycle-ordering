@@ -16,9 +16,7 @@ const getSingelUser = async (email: string) => {
 
 //find all product
 const getAllproductoDB = async () => {
-  const result = await Products.aggregate([
-    { $project: { name: 1 } },
-  ]);
+  const result = await Products.aggregate([{ $project: { name: 1 } }]);
   return result;
 };
 const getAllOrderoDB = async () => {
