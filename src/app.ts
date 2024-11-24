@@ -4,6 +4,7 @@ import { Productrouter } from './app/module/Product/product.route';
 import { OrderRoute } from './app/module/Order/order.route';
 import { UserRoute } from './app/module/user/user.routes';
 import cookieParser from 'cookie-parser';
+import { PaymentRouter } from './app/module/payment/payment.route';
 const app = express();
 
 //middleWare setup
@@ -15,6 +16,7 @@ app.use(cookieParser());
 app.use('/api/products', Productrouter);
 app.use('/api/orders', OrderRoute);
 app.use('/api/user', UserRoute);
+app.use('/api/payment',PaymentRouter);
 
 //root route
 app.get('/', (req: Request, res: Response) => {
